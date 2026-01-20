@@ -6,6 +6,32 @@
     display: block;
 }
 
+/* 탭 컨테이너 */
+.redmine-status-report-tabs {
+    padding-top: 10px;
+}
+
+/* 테이블 헤더 스타일 */
+.redmine-status-report-th-status {
+    width: 60px;
+    min-width: 60px;
+}
+
+.redmine-status-report-th-transition-secs {
+    width: 80px;
+    min-width: 80px;
+}
+
+.redmine-status-report-th-user {
+    width: 220px;
+    min-width: 220px;
+}
+
+.redmine-status-report-th-transition-date {
+    width: 130px;
+    min-width: 130px;
+}
+
 /* 프로그레스 바 스타일 */
 .status-report-progress-container {
     min-width: 500px;

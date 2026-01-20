@@ -1,4 +1,4 @@
-<div class="tabs" data-view-container="redmine_status_report_tabs_views">
+<div class="tabs redmine-status-report-tabs" data-view-container="redmine_status_report_tabs_views">
   <ul>
     <li>
       <a href="javascript:;" class="tab selected" data-tab="redmine_status_report_statistics">
@@ -18,8 +18,8 @@
       <table>
         <thead>
         <tr>
-          <th style="width: 60px; min-width: 60px;"><%= l(:redmine_status_report_status_name) %></th>
-          <th style="width: 80px; min-width: 80px;"><%= l(:redmine_status_report_transition_secs) %></th>
+          <th class="redmine-status-report-th-status"><%= l(:redmine_status_report_status_name) %></th>
+          <th class="redmine-status-report-th-transition-secs"><%= l(:redmine_status_report_transition_secs) %></th>
           <th><%= l(:redmine_status_report_timeline) %></th>
         </tr>
         </thead>
@@ -44,10 +44,10 @@
       <table>
         <thead>
         <tr>
-          <th style="width: 60px; min-width: 60px;"><%= l(:redmine_status_report_status_name) %></th>
-          <th style="width: 220px; min-width: 220px;"><%= l(:redmine_status_report_user) %></th>
-          <th style="width: 130px; min-width: 130px;"><%= l(:redmine_status_report_transition_date) %></th>
-          <th style="width: 80px; min-width: 80px;"><%= l(:redmine_status_report_transition_secs) %></th>
+          <th class="redmine-status-report-th-status"><%= l(:redmine_status_report_status_name) %></th>
+          <th class="redmine-status-report-th-user"><%= l(:redmine_status_report_user) %></th>
+          <th class="redmine-status-report-th-transition-date"><%= l(:redmine_status_report_transition_date) %></th>
+          <th class="redmine-status-report-th-transition-secs"><%= l(:redmine_status_report_transition_secs) %></th>
           <th><%= l(:redmine_status_report_timeline) %></th>
         </tr>
         </thead>
