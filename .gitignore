@@ -1,0 +1,49 @@
+# Ruby / Rails
+*.gem
+*.rbc
+/log/
+/tmp/
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/public/system
+/public/assets
+.bundle/
+vendor/bundle
+lib/bundler/man
+.ruby-version
+.ruby-gemset
+.rvmrc
+.powrc
+/.bundle
+/vendor/bundle
+/coverage/
+/spec/reports/
+.byebug_history
+
+# IDE / Editors
+.idea/
+.vscode/
+*.swp
+*~
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Docker
+.dockerignore
+# docker-compose.override.yml (필요시 제외 해제)
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Redmine Plugin Specific
+# 플러그인에서 생성될 수 있는 임시 파일이나 로컬 환경 설정이 있다면 추가
+/config/database.yml
+/config/configuration.yml

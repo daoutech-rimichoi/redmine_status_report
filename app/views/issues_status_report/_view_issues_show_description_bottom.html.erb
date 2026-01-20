@@ -1,0 +1,81 @@
+<div class="tabs" data-view-container="redmine_status_report_tabs_views">
+  <ul>
+    <li>
+      <a href="javascript:;" class="tab selected" data-tab="redmine_status_report_statistics">
+        <%= l(:redmine_status_report_statistics) %>
+      </a>
+    </li>
+    <li>
+      <a href="javascript:;" class="tab" data-tab="redmine_status_report_all">
+        <%= l(:redmine_status_report_all) %>
+      </a>
+    </li>
+  </ul>
+</div>
+<div id="redmine_status_report_tabs_views" class="tabs-views">
+  <div class="tab redmine_status_report_statistics selected">
+    <div class="autoscroll">
+      <table>
+        <thead>
+        <tr>
+          <th style="width: 60px; min-width: 60px;"><%= l(:redmine_status_report_status_name) %></th>
+          <th style="width: 80px; min-width: 80px;"><%= l(:redmine_status_report_transition_secs) %></th>
+          <th><%= l(:redmine_status_report_timeline) %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% RedmineStatusReportHelper.load_stats(@issue).each do |row| %>
+          <tr>
+            <td><%= row['status_name'] %></td>
+            <td>
+              <%= RedmineStatusReportHelper.secs_to_duration_string(row['total_status_secs']) || l(:redmine_status_report_still) %>
+            </td>
+            <td>
+              <%= RedmineStatusReportHelper.render_status_progress_bar(row['percent']) %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="tab redmine_status_report_all">
+    <div class="autoscroll">
+      <table>
+        <thead>
+        <tr>
+          <th style="width: 60px; min-width: 60px;"><%= l(:redmine_status_report_status_name) %></th>
+          <th style="width: 220px; min-width: 220px;"><%= l(:redmine_status_report_user) %></th>
+          <th style="width: 130px; min-width: 130px;"><%= l(:redmine_status_report_transition_date) %></th>
+          <th style="width: 80px; min-width: 80px;"><%= l(:redmine_status_report_transition_secs) %></th>
+          <th><%= l(:redmine_status_report_timeline) %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% RedmineStatusReportHelper.load_all(@issue).each do |row| %>
+          <%
+            since_fmt = format_time(row['since'])
+            till_fmt = format_time(row['till'])
+            tooltip = "#{since_fmt} &ndash; #{till_fmt} (#{row['percent']}% #{l(:redmine_status_report_of_total_time)})".html_safe
+          %>
+          <tr>
+            <td><%= row['status_name'] %></td>
+            <td><%= row['user_name'] %></td>
+            <td><%= since_fmt %></td>
+            <td>
+              <span title="<%= tooltip %>">
+                <%= RedmineStatusReportHelper.secs_to_duration_string(row['transition_age_secs']) || l(:redmine_status_report_still) %>
+              </span>
+            </td>
+            <td title="<%= tooltip %>">
+              <% if row['percent'] > 0.01 %>
+                <%= RedmineStatusReportHelper.render_status_progress_bar(row['percent'], row['percent_running_total']) %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

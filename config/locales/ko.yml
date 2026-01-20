@@ -1,0 +1,10 @@
+ko:
+  redmine_status_report_statistics: 상태 변경 통계
+  redmine_status_report_all: 전체 변경 이력
+  redmine_status_report_user: 변경자
+  redmine_status_report_transition_date: 변경 일시
+  redmine_status_report_status_name: 상태
+  redmine_status_report_transition_secs: 유지 기간
+  redmine_status_report_still: 현재
+  redmine_status_report_timeline: 타임라인
+  redmine_status_report_of_total_time: (전체 시간 대비)
