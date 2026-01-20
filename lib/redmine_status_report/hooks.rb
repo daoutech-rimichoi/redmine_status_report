@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RedmineStatusReport
   class Hooks < Redmine::Hook::ViewListener
     render_on :view_layouts_base_html_head, partial: 'issues_status_report/additional_assets'
